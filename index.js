@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
 const userRoute = require("./routes/user")
+const jobRoute = require("./routes/job")
 const app = express();
 const PORT = process.env.PORT || 3000;
 dotenv.config();
@@ -13,6 +14,7 @@ app.get("/", (req, res) => {
 });
 app.use(express.json());
 app.use("/api/user",userRoute);
+app.use("/api/job",jobRoute);
 
 
 mongoose.connect(process.env.MONGOOSE_URL).then(()=>{
